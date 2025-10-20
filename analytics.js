@@ -1,7 +1,7 @@
         (async () => {
     try {
       const url = window.location.href;
-      const res = await fetch("http://v1.mathkits.org/api/submit", {
+      const res = await fetch("https://v1.mathkits.org/api/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
