@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function(){
       right:20px;
       padding:0 16px;
       height:50px;
+      background:rgba(15,23,32,0.6);
+      backdrop-filter:blur(10px);
       border-radius:25px;
       display:flex;
       align-items:center;
