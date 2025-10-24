@@ -24,14 +24,20 @@ document.addEventListener('DOMContentLoaded', function(){
       transition:all 0.3s ease;
       box-shadow:0 4px 20px rgba(0,0,0,0.2);
     `;
-    widgetBtn.onmouseover = () => { widgetBtn.style.transform = 'scale(1.05)'; widgetBtn.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)'; };
-    widgetBtn.onmouseout = () => { widgetBtn.style.transform = 'scale(1)'; widgetBtn.style.boxShadow='0 4px 20px rgba(0,0,0,0.2)'; };
+    widgetBtn.onmouseover = () => { 
+      widgetBtn.style.transform = 'scale(1.05)'; 
+      widgetBtn.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)'; 
+    };
+    widgetBtn.onmouseout = () => { 
+      widgetBtn.style.transform = 'scale(1)'; 
+      widgetBtn.style.boxShadow='0 4px 20px rgba(0,0,0,0.2)'; 
+    };
     document.body.appendChild(widgetBtn);
 
-    // Inject modal HTML
+    // Inject modal HTML without full-page dark overlay
     const modalHTML = `
-      <div id="bug-report-modal" class="hidden" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:9998;">
-        <div class="modal-content" style="width:min(900px,90%);background:rgba(7,18,38,0.95);padding:18px;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.6);transform:scale(0.95);opacity:0;transition:transform .25s ease,opacity .25s ease;border:1px solid rgba(0,183,255,0.08);color:#e6eef8;">
+      <div id="bug-report-modal" class="hidden" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9998;pointer-events:none;">
+        <div class="modal-content" style="pointer-events:auto;width:min(900px,90%);background:rgba(15,23,32,0.6);backdrop-filter:blur(10px);padding:18px;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.6);transform:scale(0.95);opacity:0;transition:transform .25s ease,opacity .25s ease;border:1px solid rgba(0,183,255,0.08);color:#e6eef8;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
             <div style="font-weight:600;font-size:18px">Report an Issue</div>
             <button id="close-modal" style="background:transparent;border:0;color:#94a3b8;font-size:20px;cursor:pointer">✕</button>
@@ -68,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function(){
         modal.querySelector('.modal-content').style.opacity='1';
       });
     }
+
     function closeModal(){
       widgetBtn.style.display = 'flex';
       const content = modal.querySelector('.modal-content');
