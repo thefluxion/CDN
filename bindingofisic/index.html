@@ -7,14 +7,15 @@
   <meta name="title" content="Ruffle Example">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="language" content="English">
-  <title>Ruffle Example</title>
-  <script src="main.js"></script>
+  <title>Binding of issac</title>
   <noscript>Your browser doesn't have JavaScript enabled. Please enable JavaScript or switch to a browser that
     supports it.</noscript>
 </head>
 <body>
-<div id='ruffle' class="gameloc"></div>
-<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-<script id = "gabe">swfobject.embedSWF("binding-of-issac.swf", 'ruffle', 800, 600);</script>
+    <object>
+        <embed src="binding-of-issac.swf" width="550" height="400" />
+    </object>
+
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </body>
 </html>
