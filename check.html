@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PlatinumUnblocker Link Builder</title>
+<style>
+  body {font-family:sans-serif;background:#111;color:#eee;margin:0;padding:40px;}
+  .box {max-width:450px;margin:auto;background:#1c1c1c;padding:20px;border-radius:8px;}
+  label {font-size:14px;margin-bottom:6px;display:block;}
+  input,select {width:100%;padding:8px;border-radius:5px;border:1px solid #333;background:#222;color:#fff;margin-bottom:12px;}
+  button {width:100%;padding:10px;background:#4caf50;border:0;border-radius:5px;color:#fff;font-size:15px;font-weight:bold;cursor:pointer;}
+  #output {margin-top:15px;padding:10px;background:#000;border-radius:5px;word-break:break-all;}
+  a{color:#4caf50;}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <label>URL to Check (https will be stripped automatically)</label>
+  <input id="urlInput" type="text" placeholder="https://google.com">
+
+  <label>Select Filter</label>
+  <select id="filterInput">
+    <option>lightspeed</option>
+    <option>fortiguard</option>
+    <option>blocksi</option>
+    <option>blocksiai</option>
+    <option>cisco</option>
+  </select>
+
+  <button onclick="generate()">Generate Link</button>
+
+  <div id="output"></div>
+</div>
+
+<script>
+function stripProtocol(u){
+  return u.replace(/^https?:\/\//i,"").trim();
+}
+
+function generate(){
+  let url = document.getElementById("urlInput").value;
+  const filter = document.getElementById("filterInput").value;
+
+  if(!url){
+    document.getElementById("output").innerHTML = "Enter URL";
+    return;
+  }
+
+  url = stripProtocol(url);
+
+  const finalUrl = `https://check.platinumunblocker.com/filters/${filter}/check/${url}`;
+
+  document.getElementById("output").innerHTML = 
+    `<a href="${finalUrl}" target="_blank">${finalUrl}</a>`;
+}
+</script>
+
+</body>
+</html>
